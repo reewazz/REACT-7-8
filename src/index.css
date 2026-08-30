@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+.container{
+    /* height: 400px;
+    width: 400px; */
+    /* background-color: aqua ; */
+}
+
+
+.box {
+    height: 300px;
+    width: 300px;
+    /* background-color: #adff2f; */
+}
+/* .flex {
+    display: flex
+}
+.justify-center {
+    justify-content: center;
+
+}
+.items-center {
+    align-items: center;
+}
+.bg-black {
+    background-color: black;
+} */
