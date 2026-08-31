@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Productdetail = () => {
@@ -27,14 +27,16 @@ const Productdetail = () => {
       }
       finally {
         setLoading(false)
-        alert("final statement")
+      
       }
       
        
       
       };
 
-
+ useEffect(()=>{
+fetchProduct()
+  },[])
       console.log(newProduct)
   return (
     <div>
