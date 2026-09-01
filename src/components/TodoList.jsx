@@ -1,14 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./Button";
 import CommonSection from "./CommonSection";
 
 export const TodoList = () => {
   const [message, setMessage] = useState(""); //for input box
   const [count, setcount] = useState(1); //for unique id
-  const [Tasks, setTasks] = useState([]); //for object task
   const [editIndex, setEditIndex] = useState(null); //forediting
+  
+  const [Tasks, setTasks] = useState( 
+ JSON.parse(localStorage.getItem("tasks")) || []
+  ); //for object taskx
 
 
+  const numbers = [
+    {
+      price : 500
+
+    }, {
+      price:600
+    }]
+
+ 
+
+  const sum = numbers.reduce((acc,item)=>{
+    return acc+ item.price
+  },0)
+
+  console.log(sum)
+  
+
+// useEffect(()=>{
+//   const taskList  = JSON.parse(localStorage.getItem("tasks"))
+//   console.log(taskList,"skskks")
+//       setTasks(taskList)
+// },[])
+
+  useEffect(()=>{
+      localStorage.setItem("tasks",JSON.stringify(Tasks))
+  },[Tasks])
+
+  const user = {
+    name: "test",
+    age: 23
+  }
+
+  localStorage.setItem("userData",JSON.stringify(user))
+
+
+  const fromLocal = JSON.parse(localStorage.getItem("userData"))
 
   console.log(Tasks,"tasks")
 
@@ -69,6 +108,7 @@ export const TodoList = () => {
 
   return (
     <>
+ 
       <div className="flex flex-col items-center gap-4 m-1 ">
         <h1 className="font-semibold text-3xl">To-Do list</h1>
         <input
