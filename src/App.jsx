@@ -12,12 +12,16 @@ import Product from "./components/ProductList"
 import NewsList from "./components/News/NewsList"
 import ApiProduct from "./components/Api/ApiProducts"
 import Productdetail from "./components/Api/Productdetail"
+import BlogLists from "./pages/blogs/BlogLists"
+import AddBlog from "./pages/blogs/AddBlog"
 
 
 
 function App () {
   
     
+
+  const test  = "hello test"
   return (
     <>
 
@@ -29,13 +33,15 @@ function App () {
         <Route  path="/" element={<Home name="apple" />}  /> 
         <Route  path="todo" element={<TodoList/>}  /> 
         <Route  path="addproduct" element={<Product/>}  /> 
-        <Route  path="apiproduct" element={<ApiProduct/>}  /> 
+        <Route  path="apiproduct" element={<ApiProduct test={test} name= "another props" />}  /> 
         <Route  path="news" element={<NewsList/>}  /> 
         <Route  path="contact" element={<Contact/>}  /> 
-        <Route  path="services"  element={<Services/>}   /> 
+        <Route  path="services"  element={<Services > <TodoList/>  </Services>}   /> 
         <Route  path="course"  element={<h1 className="text-center">This is Course page <TodoList/> </h1>}   /> 
         <Route  path="course/:name"  element={<CourseDetail/> }   /> 
         <Route  path="apiproduct/:id"  element={<Productdetail/> }   /> 
+        <Route  path="blogs"  element={<BlogLists/> }   /> 
+        <Route  path="blogs/add"  element={<AddBlog/> }   /> 
         <Route path="*" element = {<h1>Page not found</h1>}/>
 
     </Routes>

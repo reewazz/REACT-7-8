@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import { TodoList } from "../../components/TodoList"
 
-export function Services () {
+export function Services ({children}) {
 
     const [query,setQuery] = useState("")
     
@@ -44,6 +45,8 @@ setQuery(e.target.value)
 
         <h1>Count value is : {count} </h1>
         <button onClick={()=>setCount(count+1)}>increase</button>
+
+        {children}
         </>
     )
 }
