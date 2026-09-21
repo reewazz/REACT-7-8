@@ -1,14 +1,17 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { GetRequest } from '../../services/http'
 
 const BlogLists = () => {
+
+    const token = localStorage.getItem("token")
 
     const [blogs,setBlogs] = useState([])
     
     const fetchBlogs = async()=>{
 
 
-        const response = await axios.get("http://localhost:8080/blog/getAll")
+        const response = await GetRequest('blog/getAll')
         console.log(response)
         setBlogs(response.data)
 

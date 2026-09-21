@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import Button from "../../components/Button";
 import CommonSection from "../../components/CommonSection";
 import UserCard from "../../components/UserCard";
+import { Button, RollingNumber } from '@mantine/core';
+
 
 export const Home = ({ name }) => {
   const [showModal,setShowModal] = useState(false)
+  const [count,setCount] = useState(0)
   const [users, setUsers] =
     useState([
       {
@@ -20,8 +22,9 @@ export const Home = ({ name }) => {
       },
     ]);
   return (
-    <div>
-      <button onClick={()=>setShowModal(true)}>+ Add Course </button>
+    <div className="flex items-center flex-col">
+      <RollingNumber value={count} fz="36px" />
+      <Button onClick={()=>setCount(count+1)} variant="filled" size="md">Increase</Button>
       <CommonSection />
 
 

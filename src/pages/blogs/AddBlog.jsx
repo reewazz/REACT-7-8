@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { APIURL, PostRequest } from '../../services/http'
 
 const AddBlog = () => {
 
@@ -16,7 +17,7 @@ const AddBlog = () => {
 
     const handleSubmit = async()=> {
         try {
-  const response = await axios.post("http://localhost:8080/blog/create",body)
+  const response = await PostRequest(`blog/create`,body)
         console.log(response)
         alert("Created Successfully")
         }

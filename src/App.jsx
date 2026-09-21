@@ -14,6 +14,9 @@ import ApiProduct from "./components/Api/ApiProducts"
 import Productdetail from "./components/Api/Productdetail"
 import BlogLists from "./pages/blogs/BlogLists"
 import AddBlog from "./pages/blogs/AddBlog"
+import MantineUi from "./components/MantineUi"
+import Login from "./pages/login/Login"
+import Signup from "./pages/login/Signup"
 
 
 
@@ -31,6 +34,7 @@ function App () {
 
         <Route  path="about" element={<h1>This is about page</h1>}  /> 
         <Route  path="/" element={<Home name="apple" />}  /> 
+        <Route  path="mantine" element={<MantineUi />}  /> 
         <Route  path="todo" element={<TodoList/>}  /> 
         <Route  path="addproduct" element={<Product/>}  /> 
         <Route  path="apiproduct" element={<ApiProduct test={test} name= "another props" />}  /> 
@@ -42,6 +46,8 @@ function App () {
         <Route  path="apiproduct/:id"  element={<Productdetail/> }   /> 
         <Route  path="blogs"  element={<BlogLists/> }   /> 
         <Route  path="blogs/add"  element={<AddBlog/> }   /> 
+        <Route  path="auth/login"  element={<Login/> }   /> 
+        <Route  path="auth/signup"  element={<Signup/> }   /> 
         <Route path="*" element = {<h1>Page not found</h1>}/>
 
     </Routes>
