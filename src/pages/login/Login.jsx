@@ -16,6 +16,7 @@ const Login=({onClose,onSignup,onLoginSuccess})=>{
     setMessage(res.data.message);
     // Save login token
     localStorage.setItem("token",res.data.token);
+    localStorage.setItem("role",res.data.role);
     // Save user information
     localStorage.setItem("user",JSON.stringify(res.data.user));
     onLoginSuccess();

@@ -28,6 +28,7 @@ const Signup = ({ onClose, onLogin, onSignupSuccess }) => {
       formData.append("fullName", fullName);
       formData.append("email", email);
       formData.append("password", password);
+      formData.append("role","ADMIN")
       if (avatar) {
         formData.append("avatar", avatar);
       }

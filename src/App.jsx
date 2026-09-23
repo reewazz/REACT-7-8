@@ -17,6 +17,8 @@ import AddBlog from "./pages/blogs/AddBlog"
 import MantineUi from "./components/MantineUi"
 import Login from "./pages/login/Login"
 import Signup from "./pages/login/Signup"
+import PrivateRoutes from "./routes/PrivateRoutes"
+import Dashboard from "./pages/admin/Dashboard"
 
 
 
@@ -40,14 +42,15 @@ function App () {
         <Route  path="apiproduct" element={<ApiProduct test={test} name= "another props" />}  /> 
         <Route  path="news" element={<NewsList/>}  /> 
         <Route  path="contact" element={<Contact/>}  /> 
-        <Route  path="services"  element={<Services > <TodoList/>  </Services>}   /> 
+        <Route  path="services"  element={   <Services > <TodoList/>  </Services>}   /> 
         <Route  path="course"  element={<h1 className="text-center">This is Course page <TodoList/> </h1>}   /> 
         <Route  path="course/:name"  element={<CourseDetail/> }   /> 
         <Route  path="apiproduct/:id"  element={<Productdetail/> }   /> 
         <Route  path="blogs"  element={<BlogLists/> }   /> 
-        <Route  path="blogs/add"  element={<AddBlog/> }   /> 
+        <Route  path="admin/blogs/add"  element={ <PrivateRoutes> <AddBlog/></PrivateRoutes> }   /> 
         <Route  path="auth/login"  element={<Login/> }   /> 
         <Route  path="auth/signup"  element={<Signup/> }   /> 
+        <Route  path="admin/dashboard"  element={ <PrivateRoutes><Dashboard/></PrivateRoutes>  }   /> 
         <Route path="*" element = {<h1>Page not found</h1>}/>
 
     </Routes>
