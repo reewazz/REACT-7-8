@@ -1,9 +1,9 @@
 import React from 'react'
-import { TodoList } from '../components/TodoList'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
-const PrivateRoutes = ({children}) => {
+const UserRoutes = ({children}) => {
 
+    
     const token = localStorage.getItem("token")
     const role = localStorage.getItem("role")
 
@@ -11,7 +11,7 @@ const PrivateRoutes = ({children}) => {
         return   <Navigate to = "/auth/login" />
     }
 
-    if (token && role==="ADMIN") {
+    if (token && role==="USER") {
     
   return (
     <>
@@ -24,4 +24,4 @@ const PrivateRoutes = ({children}) => {
 
 }
 
-export default PrivateRoutes
+export default UserRoutes

@@ -1,10 +1,14 @@
 import React,{useState} from "react";
 import {X,Mail,Lock} from "lucide-react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Login=({onClose,onSignup,onLoginSuccess})=>{
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
   const [message,setMessage]=useState("");
+
+  const navigate = useNavigate()
+
   const handleLogin=async(e)=>{
   e.preventDefault();
   try{
@@ -19,6 +23,15 @@ const Login=({onClose,onSignup,onLoginSuccess})=>{
     localStorage.setItem("role",res.data.role);
     // Save user information
     localStorage.setItem("user",JSON.stringify(res.data.user));
+    alert("Login sucessful")
+
+    if (res.data.role ==="ADMIN") {
+    navigate("/admin/dashboard")
+
+    }
+    else {
+      navigate("/user/dashboard")
+    }
     onLoginSuccess();
   }catch(error){
     console.error(error);
@@ -72,9 +85,7 @@ const Login=({onClose,onSignup,onLoginSuccess})=>{
             Login
           </button>
         </form>
-        {message&&(
-          <p className="mt-3 text-center text-sm">{message}</p>
-        )}
+    
         <div className="mt-5 text-center text-sm text-gray-600">
           Don't have an account?{" "}
           <button onClick={onSignup} className="font-semibold text-black underline">

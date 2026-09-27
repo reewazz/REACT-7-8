@@ -1,7 +1,7 @@
 import "./App.css"
 import Navbar from "./components/Navbar"
 import Button from "./components/Button"
-import { Route, Routes } from "react-router-dom"
+import { Outlet, Route, Routes } from "react-router-dom"
 import CourseDetail from "./components/courses/CourseDetail"
 import { useState } from "react"
 import Contact from "./components/Contact"
@@ -19,6 +19,8 @@ import Login from "./pages/login/Login"
 import Signup from "./pages/login/Signup"
 import PrivateRoutes from "./routes/PrivateRoutes"
 import Dashboard from "./pages/admin/Dashboard"
+import UserProfile from "./pages/user/UserProfile"
+import UserRoutes from "./routes/UserRoutes"
 
 
 
@@ -31,11 +33,17 @@ function App () {
     <>
 
      
-    <Navbar/>
+  
     <Routes>
 
+      <Route path="/" element = {<>
+      <Navbar/>
+      <Outlet/>
+      
+      </>}>
+
         <Route  path="about" element={<h1>This is about page</h1>}  /> 
-        <Route  path="/" element={<Home name="apple" />}  /> 
+        {/* <Route  path="/" element={<Home name="apple" />}  />  */}
         <Route  path="mantine" element={<MantineUi />}  /> 
         <Route  path="todo" element={<TodoList/>}  /> 
         <Route  path="addproduct" element={<Product/>}  /> 
@@ -47,11 +55,27 @@ function App () {
         <Route  path="course/:name"  element={<CourseDetail/> }   /> 
         <Route  path="apiproduct/:id"  element={<Productdetail/> }   /> 
         <Route  path="blogs"  element={<BlogLists/> }   /> 
-        <Route  path="admin/blogs/add"  element={ <PrivateRoutes> <AddBlog/></PrivateRoutes> }   /> 
         <Route  path="auth/login"  element={<Login/> }   /> 
         <Route  path="auth/signup"  element={<Signup/> }   /> 
-        <Route  path="admin/dashboard"  element={ <PrivateRoutes><Dashboard/></PrivateRoutes>  }   /> 
+        </Route>
+        {/* <Route  path="admin/dashboard"  element={ <PrivateRoutes><Dashboard/></PrivateRoutes>  }   /> 
+        <Route  path="admin/blogs/add"  element={ <PrivateRoutes> <AddBlog/></PrivateRoutes> }   />  */}
+
+        <Route  path="user/dashboard"  element={ <UserRoutes><UserProfile/></UserRoutes>  }   /> 
         <Route path="*" element = {<h1>Page not found</h1>}/>
+
+
+        <Route path = "admin" element = {
+          <div className=""> 
+            <h1>Admin navbar</h1>  
+          <Outlet/>
+         </div>}> 
+            <Route path = "dashboard" element = {<PrivateRoutes><Dashboard/></PrivateRoutes> }/>
+        <Route path = "blogs/add" element = {<PrivateRoutes> <AddBlog/></PrivateRoutes>}/>
+        </Route>
+
+
+      
 
     </Routes>
     
