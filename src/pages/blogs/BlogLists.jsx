@@ -56,7 +56,7 @@ const BlogLists = () => {
 
           <div className="mt-4 flex items-center justify-between">
             <span className="text-sm text-gray-500">
-              By {blog.author}
+              By {blog?.author?.fullName}
             </span>
 
             <span className="text-sm text-gray-500">

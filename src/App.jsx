@@ -66,12 +66,11 @@ function App () {
 
 
         <Route path = "admin" element = {
-          <div className=""> 
-            <h1>Admin navbar</h1>  
-          <Outlet/>
-         </div>}> 
-            <Route path = "dashboard" element = {<PrivateRoutes><Dashboard/></PrivateRoutes> }/>
-        <Route path = "blogs/add" element = {<PrivateRoutes> <AddBlog/></PrivateRoutes>}/>
+          <PrivateRoutes>
+          
+         </PrivateRoutes>}> 
+            <Route path = "dashboard" element = {<Dashboard/> }/>
+        <Route path = "blogs/add" element = { <AddBlog/>}/>
         </Route>
 
 

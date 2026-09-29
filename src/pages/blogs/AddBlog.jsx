@@ -14,7 +14,8 @@ const AddBlog = () => {
   author: author,
   body: "This is body from frontend",
     likes: 100,
-    category : "postapi"
+    category : "postapi",
+    status:false
     }
 
     const fetchUsers = async ()=> {
